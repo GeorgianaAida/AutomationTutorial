@@ -46,15 +46,16 @@ public class PracticeFormTest extends ShareData {
 
 
         String genderValue = "Female";
-        List<WebElement> genderOptionsList = driver.findElements(By.xpath("//input[@name='gender']"));
+       By genderOptionsElement= By.xpath("//input[@name='gender']");
+        List<WebElement> genderOptionsList = driver.findElements(genderOptionsElement);
         if (genderValue.equals("Male")) {
-            gitexecutor.executeScript("arguments[0].click();", genderOptionsList.get(0));
+            elementHelper.clickJSLocator(genderOptionsList.get(0));
         }
         if (genderValue.equals("Female")) {
-            executor.executeScript("arguments[0].click();", genderOptionsList.get(1));
+            elementHelper.clickJSLocator(genderOptionsList.get(1));
         }
         if (genderValue.equals("Other")) {
-            executor.executeScript("arguments[0].click();", genderOptionsList.get(2));
+           elementHelper.clickJSLocator(genderOptionsList.get(2));
         }
 
         WebElement phoneElement = driver.findElement(By.xpath("//input[@placeholder='Mobile Number']"));
@@ -97,11 +98,11 @@ public class PracticeFormTest extends ShareData {
         hobbies.add("Reading");
         hobbies.add("Music");
 
-        List<WebElement> hobbiesOptionsList = driver.findElements(By.xpath("//div[@id='hobbiesWrapper']//label"));
+        By hobbiesOptionsList = By.xpath("//div[@id='hobbiesWrapper']//label");
         for (int index = 0; index < hobbies.size(); index++) {
             String currentText = hobbiesOptionsList.get(index).getText();
             if (hobbies.contains(currentText)){
-                executor.executeScript("arguments[0].click();", hobbiesOptionsList.get(index));
+                elementHelper.clickJSLocator (hobbiesOptionsList.get(index));
             }
 
         }
