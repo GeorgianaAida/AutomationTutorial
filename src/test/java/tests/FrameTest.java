@@ -23,7 +23,7 @@ public class FrameTest extends ShareData {
         elementHelper.clickJSLocator(alertsFrameWindowMenu);
 
         By framesSubmenu = By.xpath("//span[text()='Frames']");
-        elementHelper.clickLocator(framesSubmenu);
+        elementHelper.clickJSLocator(framesSubmenu);
 
         driver.switchTo().frame("frame1");
 
