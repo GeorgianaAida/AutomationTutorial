@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
+import pages.IndexPage;
 import shareData.ShareData;
 
 import java.util.ArrayList;
@@ -25,11 +26,14 @@ public class BrowserWindowsTest extends ShareData {
         ElementHelper elementHelper = new ElementHelper(driver);
 
 
-//        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        IndexPage indexPage=new IndexPage(driver);
+        indexPage.enterOnAlertFrameWindowMenu();
 
-        By alertsFrameWindowMenu = By.xpath("//h5[text()='Alerts, Frame & Windows']");
-//        executor.executeScript("arguments[0].click();", alertsFrameWindowMenu);
-        elementHelper.clickJSLocator(alertsFrameWindowMenu);
+////        JavascriptExecutor executor = (JavascriptExecutor) driver;
+//
+//        By alertsFrameWindowMenu = By.xpath("//h5[text()='Alerts, Frame & Windows']");
+////        executor.executeScript("arguments[0].click();", alertsFrameWindowMenu);
+//        elementHelper.clickJSLocator(alertsFrameWindowMenu);
 
         By browserWindowsSubmenu = By.xpath("//span[text()='Browser Windows']");
 //        browserWindowsSubmenu.click();
