@@ -1,6 +1,7 @@
 package helpMethods;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,27 +16,30 @@ public class AlertHelper {
         this.driver = driver;
     }
 
-    public void waitForAlertVisibile() {
+    public void waitForAlert(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
     }
 
-    public void acceptAlert() {
-        waitForAlertVisibile();
+    //construim combinatiile pentru o alerta; dismiss; accept; completare alerta
+    //dupa fiecare metoda avem nevoie de wait
+
+    public void acceptAlert(){
+        waitForAlert();
         Alert alertOk = driver.switchTo().alert();
         System.out.println(alertOk.getText());
         alertOk.accept();
     }
 
-    public void cancelAlert() {
-        waitForAlertVisibile();
+    public void cancelAlert(){
+        waitForAlert();
         Alert alertOk = driver.switchTo().alert();
         System.out.println(alertOk.getText());
         alertOk.dismiss();
     }
 
-    public void fillAlert(String value) {
-        waitForAlertVisibile();
+    public void fillAlert(String value){
+        waitForAlert();
         Alert alertOk = driver.switchTo().alert();
         System.out.println(alertOk.getText());
         alertOk.sendKeys(value);

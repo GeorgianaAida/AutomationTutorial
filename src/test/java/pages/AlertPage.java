@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pageLocators.AlertLocators;
 
+import javax.swing.text.Element;
+
 public class AlertPage {
     private WebDriver driver;
     private ElementHelper elementHelper;
@@ -13,28 +15,27 @@ public class AlertPage {
 
     public AlertPage(WebDriver driver) {
         this.driver = driver;
-        elementHelper =  new ElementHelper(driver);
-        alertHelper=new AlertHelper(driver);
+        elementHelper = new ElementHelper(driver);
+        alertHelper = new AlertHelper(driver);
     }
 
-    public void interactWithAlert(){
+    public void interactWithAcceptAlert(){
         elementHelper.clickJSLocator(AlertLocators.alertOkElement);
         alertHelper.acceptAlert();
     }
+
     public void interactWithTimerAlert(){
         elementHelper.clickJSLocator(AlertLocators.timerAlertElement);
         alertHelper.acceptAlert();
     }
 
-    public void interactWithCanacelAlert(){
-
-        elementHelper.clickJSLocator(AlertLocators.confirmElement);
+    public void interactWithCancelAlert(){
+        elementHelper.clickJSLocator(AlertLocators.confirmButtonElement);
         alertHelper.cancelAlert();
     }
 
-    public void interactWithPromtAlert(){
-
-        elementHelper.clickJSLocator(AlertLocators.promtElement);
-        alertHelper.fillAlert("Altceva!");
+    public void interactWithPromtAlert(String value){
+        elementHelper.clickJSLocator(AlertLocators.promptButtonElement);
+        alertHelper.fillAlert(value);
     }
 }

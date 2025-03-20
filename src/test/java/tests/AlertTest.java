@@ -2,8 +2,8 @@ package tests;
 
 import helpMethods.AlertHelper;
 import helpMethods.ElementHelper;
+import helpMethods.TabWindowHelper;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
@@ -18,20 +18,14 @@ public class AlertTest extends ShareData {
 
     @Test
     public void metodaTest() {
-
-        ElementHelper elementHelper = new ElementHelper(driver);
-        AlertHelper alertHelper = new AlertHelper(driver);
-
         IndexPage indexPage = new IndexPage(driver);
         indexPage.enterOnAlertFrameWindowMenu();
-        indexPage.enterOnAlertSubmenu();
+        indexPage.enterOnAlertSubMenu();
 
-        AlertPage alertPage=new AlertPage(driver);
-        alertPage.interactWithAlert();
+        AlertPage alertPage = new AlertPage(driver);
+        alertPage.interactWithAcceptAlert();
         alertPage.interactWithTimerAlert();
-        alertPage.interactWithCanacelAlert();
+        alertPage.interactWithCancelAlert();
         alertPage.interactWithPromtAlert("1");
-
-
     }
 }

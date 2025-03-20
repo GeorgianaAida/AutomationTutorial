@@ -10,25 +10,27 @@ import java.time.Duration;
 public class ElementHelper {
     public WebDriver driver;
 
+    //constructor
     public ElementHelper(WebDriver driver) {
         this.driver = driver;
     }
 
+    //metode:
     public void waitForElementVisible(By locator){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void waitForElementVisible(WebElement locator){
-        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(locator));
     }
 
 
 
     public void clickLocator(By locator){
-     waitForElementVisible(locator);
-     driver.findElement(locator).click();
+        waitForElementVisible(locator);
+        driver.findElement(locator).click();
     }
 
     public void clickJSLocator(By locator){
@@ -38,7 +40,6 @@ public class ElementHelper {
     }
 
     public void clickJSLocator(WebElement locator){
-//        waitForElementVisible(locator);
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", locator);
     }
@@ -57,9 +58,8 @@ public class ElementHelper {
 
     public void validateTextLocator(By locator, String expected){
         waitForElementVisible(locator);
-        String actualMessage=driver.findElement(locator).getText();
-        Assert.assertEquals(actualMessage,expected);
-
+        String actualMessage = driver.findElement(locator).getText();
+        Assert.assertEquals(actualMessage, expected);
     }
 
     public void validateTextContainsElement(WebElement element, String text){
