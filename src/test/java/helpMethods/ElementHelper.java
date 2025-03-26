@@ -26,6 +26,11 @@ public class ElementHelper {
         wait.until(ExpectedConditions.visibilityOf(locator));
     }
 
+    public void waitForElementsVisible(By locator){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
+
 
 
     public void clickLocator(By locator){
