@@ -1,3 +1,4 @@
+
 package tests;
 
 import helpMethods.ElementHelper;
@@ -24,9 +25,9 @@ public class PracticeFormTest extends ShareData {
 
         String firstNameValue = "Aida";
         String lastNameValue = "Georgiana";
-        String emailValue = "aida.georgiana.com";
+        String emailValue = "aida.georgiana@gmail.com";
         String genderValue = "Female";
-        String mobilePhoneValue = "074555555";
+        String mobilePhoneValue = "0712121212";
         List<String> subjects = new ArrayList<>();
         subjects.add("Maths");
         subjects.add("Arts");
